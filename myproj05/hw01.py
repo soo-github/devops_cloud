@@ -40,8 +40,11 @@ def songTitle_fn(s):
 
 
 print("=== 멜론 Top100 리스트에서 '곡명' 단어수 출력 ===\n")
+# map 사용한 방법.
 for s in map(songTitle_fn, song_list):
     print(s, "=>", len(s.split()))
+
+# for 사용한 방법.
 
 
 # 곡명 단어수 top10
