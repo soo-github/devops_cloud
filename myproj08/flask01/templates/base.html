@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!--주석 처리-->
+
+<head>
+    <meta charset="utf-8" />
+    <title>웹 문서 만들기</title>
+    <style>
+        /* 스타일 안에서 주석처리 */
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            font-weight: bold;
+            color: steelblue;
+            border-bottom: 3px dashed steelblue;
+        }
+
+        h1:hover {
+            color: white;
+            cursor: pointer;
+        }
+
+        #top_nav li {
+            display: inline-block;
+        }
+
+        #top_nav li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        #top_nav li a:hover {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul id="top_nav">
+            <li>
+                <a href="/">처음으로</a>
+            </li>
+            <li>
+                <a href="/profile">프로필</a>
+            </li>
+            <li>
+                <a href="/posts">블로그</a>
+            </li>
+            <li>
+                <a href="http://github.com/soo-github">깃허브</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <img src="/static/dog.jpg"
+            style="margin: 0 auto; display: block; width: 200px; height: 200px; border-radius: 100px; box-shadow: 1px 1px 1px #aaa;" />
+    </div>
+
+    {% block body %}
+    {% endblock %}
+    <hr>
+    &copy; 2021. 김수인의 컴퍼니
+</body>
+
+</html>
