@@ -4,3 +4,5 @@ def check_available(received_text: str) -> bool:
 
 def make_response(received_text: str) -> str:
     return "왜?"
+
+
