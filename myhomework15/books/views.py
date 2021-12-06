@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from books.models import Bookstore
 
 
 def bookstore_list(request: HttpRequest) -> HttpResponse:
