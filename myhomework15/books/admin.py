@@ -1,4 +1,8 @@
 from django.contrib import admin
 from books.models import Bookstore
 
-admin.site.register(Bookstore)
+
+class BookstoreAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Bookstore, BookstoreAdmin)
