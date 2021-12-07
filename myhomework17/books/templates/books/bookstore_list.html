@@ -1,0 +1,25 @@
+{% extends "books/layout.html" %}
+
+{% block content %}
+    <table>
+        <thead>
+        <tr>
+            <th>product</th>
+            <th>price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bookstore in bookstore_list %}
+            <tr>
+                <td>
+                    <a href="/books/{{ bookstore.pk }}/">
+                        {{ bookstore.product }}
+                    </a>
+                </td>
+                <td>{{ bookstore.price }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
