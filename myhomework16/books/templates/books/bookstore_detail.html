@@ -1,0 +1,16 @@
+{% extends "books/layout.html" %}
+
+{% block content %}
+    <h2>{{ bookstore.product }}</h2>
+
+    <ul>
+        <li>상품명:{{ bookstore.product }}</li>
+        <li>판매가격:{{ bookstore.price }}</li>
+    </ul>
+
+    {{ bookstore.description|linebreaks }}
+
+    <hr>
+    <a href="/books/">목록으로</a>
+{% endblock %}
+
