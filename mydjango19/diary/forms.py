@@ -1,6 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
-from diary.models import Post
+from diary.models import Post, Comment
 
 
 # class PostForm(forms.Form):
@@ -25,3 +25,8 @@ class PostForm(forms.ModelForm):
             "tag_set",
         ]
 
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["author_name", "message"]
