@@ -23,11 +23,19 @@ class Shop(TimestampedModel):
     def __str__(self) -> str:
         return self.name
 
+    class Meta:
+        verbose_name = "포스팅"
+        verbose_name_plural = "포스팅 목록"
+
 
 class Review(TimestampedModel):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
     author_name = models.CharField(max_length=20)
     message = models.TextField()
+
+    class Meta:
+        verbose_name = "리뷰"
+        verbose_name_plural = "리뷰 목록"
 
 
 class Tag(TimestampedModel):
@@ -35,3 +43,7 @@ class Tag(TimestampedModel):
 
     def __str__(self) -> str:
         return self.name
+
+    class Meta:
+        verbose_name = "태그"
+        verbose_name_plural = "태그 목록"
