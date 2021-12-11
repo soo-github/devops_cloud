@@ -3,8 +3,33 @@
 {% block content %}
     <h2>{{ shop.name }}</h2>
 
-    {{ shop.description }}
+    {#    {{ shop.description }}#}
+    <p>
+        태그:
+        {% for tag in tag_list %}
+            <a href="{% url "shop:tag_detail" tag.name %}" class="badge bg-success">
+                {{ tag.name }}
+            </a>
+        {% endfor %}
+    </p>
 
     <hr>
     {{ shop.created_at|timesince }} 전에 등록
+
+    <h3>댓글</h3>
+
+    <ul>
+        {% for comment in comment_list %}
+            <li>
+                {{ comment.message }}
+                by {{ comment.author_name }}
+                at {{ comment.created_at }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <a href="{% url "shop:post_list" %}">목록으로</a>
+
+    <a href="{% url "shop:shop_edit" %}">수정하기</a>
 {% endblock %}
