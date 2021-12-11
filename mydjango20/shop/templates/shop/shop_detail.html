@@ -19,17 +19,17 @@
     <h3>댓글</h3>
 
     <ul>
-        {% for comment in comment_list %}
+        {% for review in review_list %}
             <li>
-                {{ comment.message }}
-                by {{ comment.author_name }}
-                at {{ comment.created_at }}
+                {{ review.message }}
+                by {{ review.author_name }}
+                at {{ review.created_at }}
             </li>
         {% endfor %}
     </ul>
 
     <hr>
-    <a href="{% url "shop:post_list" %}">목록으로</a>
+    <a href="{% url "shop:shop_list" %}">목록으로</a>
 
-    <a href="{% url "shop:shop_edit" %}">수정하기</a>
+    <a href="{% url "shop:shop_edit" shop.pk %}">수정하기</a>
 {% endblock %}
