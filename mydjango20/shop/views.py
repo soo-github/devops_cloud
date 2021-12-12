@@ -38,3 +38,12 @@ def shop_new(request: HttpRequest) -> HttpResponse:
         "form": form,
     })
 
+
+def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
+    qs = Shop.objects.all()
+    qs = qs.filter(tag_set__name=tag_name)
+
+    return render(request, "shop/tag_detail.html", {
+        "tag_name": tag_name,
+        "shop_list": qs,
+    })
