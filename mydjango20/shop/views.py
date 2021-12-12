@@ -39,6 +39,22 @@ def shop_new(request: HttpRequest) -> HttpResponse:
     })
 
 
+def shop_edit(request: HttpRequest, pk: int) -> HttpResponse:
+    shop = get_object_or_404(Shop, pk=pk)
+
+    if request.method == "POST":
+        form = ShopForm(request.POST, request.FILES, instance=shop)
+        if form.is_valid():
+            saved_post = form.save()
+            return redirect("shop:shop_detail", saved_post.pk)
+    else:
+        form = ShopForm(instance=shop)
+
+    return render(request, "shop/shop_form.html", {
+        "form": form,
+    })
+
+
 def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
     qs = Shop.objects.all()
     qs = qs.filter(tag_set__name=tag_name)
@@ -47,3 +63,11 @@ def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
         "tag_name": tag_name,
         "shop_list": qs,
     })
+
+
+def review_new(request: HttpRequest) -> HttpResponse:
+    pass
+
+
+def review_edit(request: HttpRequest) -> HttpResponse:
+    pass
