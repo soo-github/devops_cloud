@@ -58,8 +58,8 @@ def shop_edit(request: HttpRequest, pk: int) -> HttpResponse:
     if request.method == "POST":
         form = ShopForm(request.POST, request.FILES, instance=shop)
         if form.is_valid():
-            saved_post = form.save()
-            return redirect("shop:shop_detail", saved_post.pk)
+            saved_shop = form.save()
+            return redirect("shop:shop_detail", saved_shop.pk)
     else:
         form = ShopForm(instance=shop)
 
