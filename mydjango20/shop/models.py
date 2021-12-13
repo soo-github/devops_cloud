@@ -16,6 +16,9 @@ class Category(TimestampedModel):
     def __str__(self) -> str:
         return self.name
 
+    class Meta:
+        ordering = ["-id"]
+
 
 class Shop(TimestampedModel):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -35,6 +38,9 @@ class Shop(TimestampedModel):
         verbose_name = "포스팅"
         verbose_name_plural = "포스팅 목록"
 
+    class Meta:
+        ordering = ["-id"]
+
 
 class Review(TimestampedModel):
     shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
@@ -44,6 +50,9 @@ class Review(TimestampedModel):
     class Meta:
         verbose_name = "리뷰"
         verbose_name_plural = "리뷰 목록"
+
+    class Meta:
+        ordering = ["-id"]
 
 
 class Tag(TimestampedModel):
@@ -55,3 +64,6 @@ class Tag(TimestampedModel):
     class Meta:
         verbose_name = "태그"
         verbose_name_plural = "태그 목록"
+
+    class Meta:
+        ordering = ["name"]
