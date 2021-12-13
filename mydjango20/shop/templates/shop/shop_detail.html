@@ -13,10 +13,15 @@
         {% endfor %}
     </p>
 
+    {{ shop.description }}
+
+
     <hr>
     {{ shop.created_at|timesince }} 전에 등록
 
     <h4>댓글</h4>
+
+    <a href="{% url "shop:review_new" shop.pk %}">댓글 쓰기</a>
 
     <ul>
         {% for review in review_list %}
@@ -25,6 +30,8 @@
                 by {{ review.author_name }}
                 at {{ review.created_at }}
             </li>
+
+            <a href="{% url "shop:review_edit" shop.pk review.pk %}">Edit</a>
         {% endfor %}
     </ul>
 

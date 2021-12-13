@@ -1,6 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from shop.forms import ShopForm
+from shop.forms import ShopForm, ReviewForm
 from shop.models import Shop
 
 
@@ -65,9 +65,34 @@ def tag_detail(request: HttpRequest, tag_name: str) -> HttpResponse:
     })
 
 
-def review_new(request: HttpRequest) -> HttpResponse:
-    pass
+def review_new(request: HttpRequest, shop_pk: int) -> HttpResponse:
+    shop = get_object_or_404(Shop, pk=shop_pk)
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.shop = shop
+            review.save()
+            return redirect("shop:shop_detail", shop_pk)
+    else:
+        form = ReviewForm()
+
+    return render(request, "shop/review_form.html", {
+        "form": form,
+    })
 
 
-def review_edit(request: HttpRequest) -> HttpResponse:
-    pass
+def review_edit(request: HttpRequest, shop_pk: int, pk: int) -> HttpResponse:
+    review = get_object_or_404(Shop, pk=pk)
+
+    if request.method == "POST":
+        form = ReviewForm(request.POST, request.FILES, instance=review)
+        if form.is_valid():
+            form.save()
+            return redirect("shop:shop_detail", shop_pk)
+    else:
+        form = ReviewForm(instance=review)
+    return render(request, "shop/review_form.html", {
+        "form": form,
+    })
