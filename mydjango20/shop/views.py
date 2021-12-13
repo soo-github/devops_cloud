@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from shop.forms import ShopForm, ReviewForm
-from shop.models import Shop
+from shop.models import Shop, Review
 
 
 def shop_list(request: HttpRequest) -> HttpResponse:
@@ -84,7 +84,7 @@ def review_new(request: HttpRequest, shop_pk: int) -> HttpResponse:
 
 
 def review_edit(request: HttpRequest, shop_pk: int, pk: int) -> HttpResponse:
-    review = get_object_or_404(Shop, pk=pk)
+    review = get_object_or_404(Review, pk=pk)
 
     if request.method == "POST":
         form = ReviewForm(request.POST, request.FILES, instance=review)
