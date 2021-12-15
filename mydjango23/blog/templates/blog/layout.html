@@ -9,14 +9,32 @@
 </head>
 <body>
 
-    <h1>김수인의 블로그</h1>
+<h1>김수인의 블로그</h1>
 
-    {% block content %}
+    <ul>
+        {% if not user.is_authenticated %}
+            <li>
+                <a href="{% url "accounts:login" %}">로그인</a>
+            </li>
+            <li>
+                <a href="{% url "accounts:signup" %}">회원가입</a>
+            </li>
+        {% else %}
 
-    {% endblock %}
+            <li>
+                <a href="{% url "accounts:profile" %}">프로필</a>
+            </li>
+            <li>
+                <a href="{% url "accounts:logout" %}">로그아웃</a>
+            </li>
+        {% endif %}
+    </ul>
 
-    <hr />
-    &copy; 2021. 김수인 컴퍼니.
+{% block content %}
+{% endblock %}
+
+<hr/>
+&copy; 2021. 김수인 컴퍼니.
 
 </body>
 </html>
