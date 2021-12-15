@@ -25,8 +25,9 @@ def post_new(request: HttpRequest) -> HttpResponse:
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             saved_post = form.save()
-            messages.success(request, "새로운 포스팅을 저장했습니다.")
-            return redirect("blog:post_detail", saved_post.pk)
+            messages.success(request, f"#{pk} 새로운 포스팅을 저장했습니다.")
+            return redirect(saved_post)
+            # return redirect("blog:post_detail", saved_post.pk) 위 코드와 같음.
     else:
         form = PostForm()
 
