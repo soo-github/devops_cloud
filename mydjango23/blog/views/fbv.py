@@ -10,14 +10,14 @@ def post_list(request: HttpRequest) -> HttpResponse:
     post_qs = Post.objects.all()
     return render(request, 'blog/post_list.html', {
         'post_list': post_qs,
-    })
+    },)
 
 
 def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
     post = get_object_or_404(Post, pk=pk)
     return render(request, "blog/post_detail.html", {
         "post": post,
-    })
+    },)
 
 
 def post_new(request: HttpRequest) -> HttpResponse:
@@ -32,7 +32,7 @@ def post_new(request: HttpRequest) -> HttpResponse:
 
     return render(request, "blog/post_form.html", {
         "form": form,
-    })
+    },)
 
 
 def post_edit(request: HttpRequest, pk: int) -> HttpResponse:
@@ -50,7 +50,7 @@ def post_edit(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, 'blog/post_form.html', {
         "form": form,
         "post": post,
-    })
+    },)
 
 
 def post_delete(request: HttpRequest, pk: int) -> HttpResponse:
