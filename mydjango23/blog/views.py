@@ -21,8 +21,6 @@ def post_detail(request: HttpRequest, pk: int) -> HttpResponse:
 
 
 def post_new(request: HttpRequest) -> HttpResponse:
-    # request.method  # "GET", "POST"
-
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -56,4 +54,13 @@ def post_edit(request: HttpRequest, pk: int) -> HttpResponse:
 
 
 def post_delete(request: HttpRequest, pk: int) -> HttpResponse:
-    raise NotImplementedError("삭제는 아직 강의에서 다루지 않았습니다.")
+    post = get_object_or_404(Post, pk=pk)
+
+    if request.method == "POST":
+        post.delete()
+        messages.success(request, f"#{pk} 포스팅을 삭제했습니다.")
+        return redirect("blog:post_list")
+
+    return render(request, "blog/post_confirm_delete.html", {
+        "post": post,
+    },)
