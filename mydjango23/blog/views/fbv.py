@@ -2,12 +2,23 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from blog.forms import PostForm
-from blog.models import Post
+from django.views.generic import CreateView
+
+from blog.forms import PostForm, SubscriberForm
+from blog.models import Post, Subscriber
 
 
 def post_list(request: HttpRequest) -> HttpResponse:
     post_qs = Post.objects.all()
+    format = request.GET.get("format")
+
+    if format == "xlsx":
+        tabular_data = Post.get_tabular_data(post_qs, format="xlsx")
+        return HttpResponse(tabular_data, content_type="application/vnd.ms-excel")
+    elif format == "json":
+        tabular_data = Post.get_tabular_data(post_qs, format="json")
+        return HttpResponse(tabular_data, content_type="application/json")
+
     return render(request, 'blog/post_list.html', {
         'post_list': post_qs,
     },)
@@ -25,7 +36,7 @@ def post_new(request: HttpRequest) -> HttpResponse:
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             saved_post = form.save()
-            messages.success(request, f"#{pk} 새로운 포스팅을 저장했습니다.")
+            messages.success(request, "새로운 포스팅을 저장했습니다.")
             return redirect(saved_post)
             # return redirect("blog:post_detail", saved_post.pk) 위 코드와 같음.
     else:
@@ -65,3 +76,9 @@ def post_delete(request: HttpRequest, pk: int) -> HttpResponse:
     return render(request, "blog/post_confirm_delete.html", {
         "post": post,
     },)
+
+
+subscriber_new = CreateView.as_view(
+    model=Subscriber,
+    form_class=SubscriberForm,
+)
