@@ -1,0 +1,18 @@
+{% extends "shop/layout.html" %}
+
+{% block content %}
+    <h2>Shop Form</h2>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit">
+    </form>
+
+    <hr>
+    <a href="{% url "shop:shop_detail" shop.pk %}">
+        조회화면으로
+    </a>
+{% endblock %}
