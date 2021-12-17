@@ -6,7 +6,7 @@
     <p>
         {% for tag in shop.tag_set.all %}
             {{ tag.name }}
-            {% empty %}
+        {% empty %}
             등록된 태그가 없습니다.
         {% endfor %}
     </p>
@@ -16,4 +16,19 @@
     {% endif %}
 
     {{ shop.description|default:"설명이 없습니다." }}
+
+    <hr>
+    <h3>리뷰</h3>
+
+    <a href="{% url 'shop:review_new' shop.pk %}" class="btn btn-primary">리뷰쓰기</a>
+
+    {% for review in shop.review_set.all %}
+        <div>
+            {{ review.message }}
+            by {{ review.user }}
+            at {{ review.created_at }}
+        </div>
+    {% empty %}
+        등록된 리뷰가 없습니다.
+    {% endfor %}
 {% endblock %}
