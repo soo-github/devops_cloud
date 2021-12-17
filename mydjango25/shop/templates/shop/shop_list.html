@@ -1,10 +1,11 @@
 {% extends "shop/layout.html" %}
+{% load bootstrap5 %}
 
 {% block content %}
     <p>
         {% for category in category_list %}
             <span class="badge bg-info">
-                {{ category_list }}
+                {{ category.name }}
             </span>
         {% endfor %}
     </p>
@@ -31,5 +32,5 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% bootstrap_pagination page_obj %}
 {% endblock %}
