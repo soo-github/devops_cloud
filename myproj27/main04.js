@@ -5,8 +5,18 @@
 
 const { melon_data: song_array } = require("./melon_data");
 
-const like_list = song_array.filter(song => song.like >= 200000);
+// const like_list = song_array.filter(song => song.like >= 200000);
+//
+// for (const song of like_list) {
+//     console.log(`[${song.like}]`, song.title, song.artist);
+// }
 
-for (const song of like_list) {
-    console.log(`[${song.like}]`, song.title, song.artist);
+
+// 문제 풀이
+const filtered_song_array = song_array
+    .filter(({ like }) => like >= 200_000);
+
+
+for (const song of filtered_song_array) {
+    console.log(`[${song.like}] ${song.title} ${song.artist}`);
 }

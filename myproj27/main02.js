@@ -6,9 +6,17 @@
 
 const { melon_data: song_array } = require("./melon_data");
 
-const result = song_array.filter(song => song.artist === '방탄소년단');
+// const result = song_array.filter(song => song.artist === '방탄소년단');
+//
+// for (const song of result) {
+//     console.log(song.artist, song.title, song.like);
+// };
 
 
-for (const song of result) {
+// 문제 풀이
+const bts_song_array = song_array
+    .filter(({ artist }) => artist === "방탄소년단")
+
+for (const song of bts_song_array) {
     console.log(song.artist, song.title, song.like);
-};
+}

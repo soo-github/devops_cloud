@@ -5,6 +5,28 @@
 
 const { melon_data: song_array } = require("./melon_data");
 
-const result = song_array.filter(song => song.title.includes('사랑'));
-const songlist = result.map((fn) => fn.title);
-console.log(songlist);
+// const result = song_array.filter(song => song.title.includes('사랑'));
+// const songlist = result.map((fn) => fn.title);
+// console.log(songlist);
+
+
+// 문제 풀이
+const title_array = song_array
+    .filter(
+        ({ title }) => title.includes("사랑")
+    )
+    .map(
+        ({ title }) => title
+    );
+
+console.log(title_array);
+
+
+// const lovesong_title_array = song_array
+//     .filter(({ title }) => title.includes("사랑"))
+//     .map(({ title }) => title);
+
+
+// for (const title of lovesong_title_array) {
+//     console.log(title);
+// }

@@ -4,6 +4,25 @@
 
 const { melon_data: song_array } = require("./melon_data");
 
-const like_list = song_array.filter(song => song.like >= 200000);
-const mapped_like = like_list.map((fn) => fn.title);
-console.log(mapped_like);
+// const like_list = song_array.filter(song => song.like >= 200000);
+// const mapped_like = like_list.map((fn) => fn.title);
+// console.log(mapped_like);
+
+
+// 문제 풀이
+song_array
+    .filter(
+        ({ like }) => like >= 200_000
+    )
+    .map(
+        ({ title }) => title
+    );
+
+const filtered_title_array = song_array
+    .filter(({ like }) => like >= 200_000)
+    .map(({ title }) => title);
+
+
+for (const title of filtered_title_array) {
+    console.log(title);
+}
