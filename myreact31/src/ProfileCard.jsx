@@ -1,5 +1,4 @@
 import "./ProfileCard.css";
-import member1 from "./img/member1.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -9,7 +8,8 @@ import {
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 function ProfileCard({
-  changePageName,
+  member_id,
+  setPageName,
   profileImage,
   name,
   role,
@@ -17,7 +17,7 @@ function ProfileCard({
   email,
 }) {
   return (
-    <div>
+    <div className={member_id}>
       <section>
         <nav className="menu">
           <a href="#">
@@ -57,10 +57,10 @@ function ProfileCard({
           <a href="member2.html"></a>
           <a href="member3.html"></a>
           <a href="member4.html"></a> */}
-          <a onClick={() => changePageName("member1")}></a>
-          <a onClick={() => changePageName("member2")}></a>
-          <a onClick={() => changePageName("member3")}></a>
-          <a onClick={() => changePageName("member4")}></a>
+          <a onClick={() => setPageName("member1")}></a>
+          <a onClick={() => setPageName("member2")}></a>
+          <a onClick={() => setPageName("member3")}></a>
+          <a onClick={() => setPageName("member4")}></a>
         </nav>
       </section>
     </div>

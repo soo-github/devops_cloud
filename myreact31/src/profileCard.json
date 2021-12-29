@@ -1,0 +1,34 @@
+[
+    {
+        "member_id": "member1",
+        "profileImage": "/img/member1.jpg",
+        "name": "DCODELAB",
+        "role": "UI/UX INTERACTIVE DEVELOPER",
+        "facebookUrl": "Visit My Facebook page.",
+        "email": "hadaboni80@naver.com"
+    },
+    {
+        "member_id": "member2",
+        "profileImage": "/img/member2.jpg",
+        "name": "DCODELAB",
+        "role": "UI/UX INTERACTIVE DEVELOPER",
+        "facebookUrl": "Visit My Facebook page.",
+        "email": "hadaboni81@naver.com"
+    },
+    {
+        "member_id": "member3",
+        "profileImage": "/img/member3.jpg",
+        "name": "DCODELAB",
+        "role": "FRONT-END DEVELOPER",
+        "facebookUrl": "Visit My Facebook page.",
+        "email": "hadaboni82@naver.com"
+    },
+    {
+        "member_id": "member4",
+        "profileImage": "/img/member4.jpg",
+        "name": "DCODELAB",
+        "role": "BACK-END DEVELOPER",
+        "facebookUrl": "Visit My Facebook page.",
+        "email": "hadaboni83@naver.com"
+    }
+]
