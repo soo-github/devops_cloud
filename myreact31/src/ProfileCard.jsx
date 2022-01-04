@@ -6,6 +6,7 @@ import {
   faStickyNote,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { Children } from "react/cjs/react.production.min";
 
 function ProfileCard({
   member_id,
@@ -17,7 +18,7 @@ function ProfileCard({
   email,
 }) {
   return (
-    <div className={member_id}>
+    <div>
       <section>
         <nav className="menu">
           <a href="#">
@@ -52,16 +53,16 @@ function ProfileCard({
           </li>
         </ul>
 
-        <nav className="others">
-          {/* <a href="member1.html" className="on"></a>
-          <a href="member2.html"></a>
-          <a href="member3.html"></a>
-          <a href="member4.html"></a> */}
+        {/* <nav className="others">
           <a onClick={() => setPageName("member1")}></a>
           <a onClick={() => setPageName("member2")}></a>
           <a onClick={() => setPageName("member3")}></a>
           <a onClick={() => setPageName("member4")}></a>
-        </nav>
+        </nav> */}
+
+        <ProfileCard>
+          <nav>{Children}</nav>
+        </ProfileCard>
       </section>
     </div>
   );

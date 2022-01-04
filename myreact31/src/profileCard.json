@@ -1,7 +1,7 @@
 [
     {
         "member_id": "member1",
-        "profileImage": "/img/member1.jpg",
+        "profileImage": "/profile-images/member1.jpg",
         "name": "DCODELAB",
         "role": "UI/UX INTERACTIVE DEVELOPER",
         "facebookUrl": "Visit My Facebook page.",
@@ -9,7 +9,7 @@
     },
     {
         "member_id": "member2",
-        "profileImage": "/img/member2.jpg",
+        "profileImage": "/profile-images/member2.jpg",
         "name": "DCODELAB",
         "role": "UI/UX INTERACTIVE DEVELOPER",
         "facebookUrl": "Visit My Facebook page.",
@@ -17,7 +17,7 @@
     },
     {
         "member_id": "member3",
-        "profileImage": "/img/member3.jpg",
+        "profileImage": "/profile-images/member3.jpg",
         "name": "DCODELAB",
         "role": "FRONT-END DEVELOPER",
         "facebookUrl": "Visit My Facebook page.",
@@ -25,7 +25,7 @@
     },
     {
         "member_id": "member4",
-        "profileImage": "/img/member4.jpg",
+        "profileImage": "/profile-images/member4.jpg",
         "name": "DCODELAB",
         "role": "BACK-END DEVELOPER",
         "facebookUrl": "Visit My Facebook page.",
